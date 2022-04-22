@@ -1,0 +1,32 @@
+
+spring:
+  application:
+    name: AutoTest
+  jpa:
+    database: MYSQL
+    show-sql: true
+    physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+    format-sql: true
+    properties.hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
+    hibernate:
+      ddl-auto: none
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/auto_test?serverTimezone=UTC
+
+server:
+  port: 8080
+  servlet:
+    context-path: /auto/test
+
+flyway:
+  baseline-on-migrate: true
+  enabled: true
+  table: schema_version
+  locations:
+    classpath: db/origin #可以配置多个值
+  check-location: true
+  enconding: UTF-8
+
