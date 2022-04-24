@@ -1,5 +1,6 @@
 package com.shilei.autotest.entity;
 
+import cn.hutool.core.util.ObjectUtil;
 import lombok.Data;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -39,4 +40,11 @@ public class Parameter {
     private String defaultValue;
 
     private String description;
+
+    public String getValue() {
+        if (ObjectUtil.isEmpty(value)){
+            value = "";
+        }
+        return value;
+    }
 }
